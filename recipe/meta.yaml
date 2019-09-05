@@ -10,8 +10,8 @@ source:
   sha1: b7574e9f0826bedef975d64d3825f75fbaeef55e
 
 build:
-  number: 1000
-  skip: true  # [(unix and py3k) or (win and py36)]
+  number: 1001
+  skip: true  # [(win and py36)]
   features:
     - vc9     # [win and py27]
     - vc10    # [win and py34]
@@ -20,8 +20,9 @@ build:
 
 requirements:
   build:
+    - {{ compiler('c') }}
     - cmake   # [win]
-    - python
+    - make    # [not win]
 
 test:
   requires:
