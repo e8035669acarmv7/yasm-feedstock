@@ -5,18 +5,13 @@ package:
   version: {{ version }}
 
 source:
-  fn: yasm-{{ version }}.tar.gz
   url: http://www.tortall.net/projects/yasm/releases/yasm-{{ version }}.tar.gz
   sha1: b7574e9f0826bedef975d64d3825f75fbaeef55e
+  patches:
+    - gh180.patch
 
 build:
-  number: 1001
-  skip: true  # [(win and py36)]
-  features:
-    - vc9     # [win and py27]
-    - vc10    # [win and py34]
-    - vc14    # [win and py35]
-    - vc14    # [win and py36]
+  number: 1002
 
 requirements:
   build:
@@ -25,9 +20,6 @@ requirements:
     - make    # [not win]
 
 test:
-  requires:
-    - python {{ environ['PY_VER'] + '*' }}  # [win]
-
   commands:
     - test -f ${PREFIX}/lib/libyasm.a              # [unix]
     - if not exist %LIBRARY_LIB%\\yasm.lib exit 1  # [win]
@@ -39,7 +31,10 @@ test:
 
 about:
   home: http://www.tortall.net/projects/yasm/
-  license: BSD 3-Clause
+  license: BSD-2-Clause AND BSD-3-Clause AND Artistic-1.0
+  license_file:
+    - Artistic.txt
+    - BSD.txt
   summary: 'Yasm is a complete rewrite of the NASM assembler under the "new" BSD License.'
 
 extra:
