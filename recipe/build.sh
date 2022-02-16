@@ -6,6 +6,10 @@ set -ex
 cp $BUILD_PREFIX/share/gnuconfig/config.* .
 
 ./configure --host=$HOST --build=$BUILD --prefix=$PREFIX
-make
-make check
+make -j ${CPU_COUNT}
+
+if [[ "$CONDA_BUILD_CROSS_COMPILATION" != "1" ]]; then
+    make check
+fi
+
 make install
