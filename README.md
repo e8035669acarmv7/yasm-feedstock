@@ -173,6 +173,7 @@ Feedstock Maintainers
 =====================
 
 * [@jakirkham](https://github.com/jakirkham/)
+* [@matthiasdiener](https://github.com/matthiasdiener/)
 * [@ocefpaf](https://github.com/ocefpaf/)
 * [@patricksnape](https://github.com/patricksnape/)
 
