@@ -11,7 +11,7 @@ source:
     - gh180.patch
 
 build:
-  number: 1002
+  number: 1003
 
 requirements:
   build:
@@ -36,6 +36,7 @@ about:
     - Artistic.txt
     - BSD.txt
   summary: 'Yasm is a complete rewrite of the NASM assembler under the "new" BSD License.'
+  dev_url: https://github.com/yasm/yasm
 
 extra:
   recipe-maintainers:
